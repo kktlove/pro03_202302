@@ -20,7 +20,8 @@ import java.util.List;
 public class SampleController2 {
     private static final Logger logger = LoggerFactory.getLogger(SampleController2.class);
 
-    private SampleService sampleService = new SampleServiceImpl();
+    @Autowired
+    private SampleService sampleService;
 
     @RequestMapping("list.do")
     public String sampleList(Model model) throws Exception {

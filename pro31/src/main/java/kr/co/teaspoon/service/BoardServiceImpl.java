@@ -12,7 +12,8 @@ import kr.co.teaspoon.dto.Board;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-    private BoardDAO boardDAO = new BoardDAOImpl();
+    @Autowired
+    private BoardDAO boardDAO;
 
     @Override
     public List<Board> boardList() throws Exception {

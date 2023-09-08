@@ -13,7 +13,8 @@ import java.util.List;
 @Service
 public class SampleServiceImpl implements SampleService{
 
-    private SampleDAO sampleDAO = new SampleDAOImpl();
+    @Autowired
+    private SampleDAO sampleDAO;
 
     public List<Sample> sampleList() throws Exception {
         return sampleDAO.sampleList();

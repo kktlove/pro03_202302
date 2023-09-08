@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class SampleDAOImpl implements SampleDAO {
 
-    @Inject
+    @Autowired
     private SqlSession sqlSession;
 
     @Override

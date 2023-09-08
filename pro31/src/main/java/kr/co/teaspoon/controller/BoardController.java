@@ -18,7 +18,8 @@ import java.util.List;
 @RequestMapping("/board/*")
 public class BoardController {
 
-    private BoardService boardService = new BoardServiceImpl();
+    @Autowired
+    private BoardService boardService;
 
     @GetMapping("list.do")		//board/list.do
     public String getBoardList(Model model) throws Exception {
