@@ -36,3 +36,32 @@ SELECT * FROM board;
 
 UPDATE board SET title='샘플 글 제목7입니다.', content='여기는 샘플 글7에 대한 내용입니다.' WHERE seq=6; 
 
+
+CREATE TABLE member(id VARCHAR(20) PRIMARY KEY,
+pw varchar(300) not null,
+name varchar(50),
+email varchar(100) not null,
+tel varchar(20) not null,
+addr1 varchar(200),
+addr2 varchar(100),
+postcode varchar(10),
+regdate DATETIME DEFAULT CURRENT_TIMESTAMP(),
+birth date,
+pt int default 0,
+visited int default 0
+);
+
+DESC MEMBER;
+
+INSERT INTO member VALUES ('admin', '1234', '관리자',
+'admin@teaspoon.co.kr', '0212341234', 
+'서울특별시 금천구 디지털로9길 23 (마리오2 패션타워)',
+'11층 1108호', '08511', DEFAULT, '2023-12-25',
+DEFAULT, DEFAULT);
+INSERT INTO member VALUES ('kim', '4321', '김천재',
+'kim@teaspoon.co.kr', '01043214321', 
+'서울특별시 금천구 가산로9길 54',
+'천재교과서', '08513', DEFAULT, '1978-12-25',
+DEFAULT, DEFAULT);
+COMMIT;
+

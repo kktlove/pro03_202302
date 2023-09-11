@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.*, java.lang.*" %>
 <%@ page import="java.text.*, java.net.InetAddress" %>
-<c:set var="path1" value="${pageContext.request.contextPath }" />
+<c:set var="path1" value="/pro3_war" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +17,23 @@
     <jsp:include page="../include/head.jsp"></jsp:include>
 </head>
 <body>
-	<header id="header">
+<div class="container is-fullhd">
 		<!-- 헤더 부분 인클루드 -->
-	 	<jsp:include page="../include/hd.jsp"></jsp:include>
-    </header>
+	<jsp:include page="../include/hd.jsp"></jsp:include>
+	<figure class="visual" id="vs1">
+		<ul class="imgbox">
+			<li class="hero is-medium is-link">
+				<div class="hero-body">
+					<p class="title">
+						Medium hero
+					</p>
+					<p class="subtitle">
+						Medium subtitle
+					</p>
+				</div>
+			</li>
+		</ul>
+	</figure>
 	<div class="content" id="content">
 	    <div class="row column text-center">
 	      <h2 class="h1">공지사항 목록</h2>
@@ -39,7 +52,7 @@
 		      	<c:forEach items="${boardList }" var="board" varStatus="status">
 		      		<tr>
 		      			<td>${status.count }</td>
-		      			<td><a href="/board/detail.do?seq=${board.seq }">${board.title }</a></td>
+		      			<td><a href="${path1}/board/detail.do?seq=${board.seq }">${board.title }</a></td>
 		      			<td>
 	      					<fmt:parseDate value="${board.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
 	      					<fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" />
@@ -58,9 +71,8 @@
 
 	    </div>
 	</div>
-    <footer id="footer" class="footer-nav row expanded collapse">
-    	<!-- 푸터 부분 인클루드 -->
-    	<jsp:include page="../include/ft.jsp"></jsp:include>
-    </footer>
+   	<!-- 푸터 부분 인클루드 -->
+	<jsp:include page="../include/ft.jsp"></jsp:include>
+</div>
 </body>
 </html>
