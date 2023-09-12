@@ -25,4 +25,35 @@
 	<update id="countUp">
 		update board set visited=visited+1 where seq=#{seq}
 	</update>
+
+	<sql id="criteria">
+		<where>
+			<trim prefixOverrides="OR">
+				<foreach item="type" collection="typeArr">
+					<trim prefixOverrides="OR">
+						<choose>
+							<when test="type == 'T'.toString()">
+								title LIKE '%' || #{keyword} || '%'
+							</when>
+							<when test="type == 'C'.toString()">
+								content LIKE '%' || #{keyword} || '%'
+							</when>
+							<when test="type == 'W'.toString()">
+								nickname LIKE '%' || #{keyword} || '%'
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</where>
+	</sql>
+	<select id="getListWithPaging" resultType="kr.co.teaspoon.dto.Board">
+		<![CDATA[
+        select * from test
+        ]]>
+		<include refid="criteria" />
+		<![CDATA[
+        ORDER BY regdate DESC LIMIT ((#{pageNum} - 1) * #{amount}), #{amount}
+        ]]>
+	</select>
 </mapper>

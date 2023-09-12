@@ -65,3 +65,6 @@ INSERT INTO member VALUES ('kim', '4321', '김천재',
 DEFAULT, DEFAULT);
 COMMIT;
 
+UPDATE member SET pw='$2a$10$TMTp1e7vW8nx7l7B49a2d.0robqb2qUFTuBPntKHRvVILg0CmBkqW' WHERE id='admin';
+UPDATE member SET pw='$2a$10$mpr36CRQpp903gPf.f76auK1CYzFkq.LD65JsGzdrBCiOluBotWYW' WHERE id='kim';
+SELECT * FROM member;

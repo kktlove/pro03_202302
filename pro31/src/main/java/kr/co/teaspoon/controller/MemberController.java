@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -123,10 +124,45 @@ public class MemberController {
             return "redirect:login.do";
         }
     }
-
+    //로그아웃
     @GetMapping("logout.do")
     public String memberLogout(HttpSession session) throws Exception {
         session.invalidate();
         return "redirect:/";
+    }
+    //회원정보 변경
+    @RequestMapping(value="update.do", method=RequestMethod.POST)
+    public String memberUpdate(Member mem, Model model) throws Exception {
+        String pwd = "";
+        if(mem.getPw().length()<=16) {
+            pwd = pwEncoder.encode(mem.getPw());
+            mem.setPw(pwd);
+        }
+        memberService.memberEdit(mem);
+        return "redirect:/";
+    }
+    //회원 탈퇴
+    @RequestMapping(value="delete.do", method = RequestMethod.GET)
+    public String memberDelete(@RequestParam String id, Model model, HttpSession session) throws Exception {
+        memberService.memberDelete(id);
+        session.invalidate();
+        return "redirect:/";
+    }
+    //Ajax를 이용하는 로그인 방법
+    @RequestMapping(value="loginCheck.do", method = RequestMethod.POST)
+    public String memberLoginCtrl(Member mdto, RedirectAttributes rttr) throws Exception {
+        session.getAttribute("member");
+        Member member = memberService.loginAjax(mdto);
+        boolean mat = pwEncoder.matches(mdto.getPw(), member.getPw());
+        if(member!=null && mat) {
+            session.setAttribute("member", member);
+            session.setAttribute("sid", member.getId());
+            rttr.addFlashAttribute("msg", "로그인 성공");
+            return "redirect:/";
+        } else {
+            session.setAttribute("member", null);
+            rttr.addFlashAttribute("msg", "로그인 실패");
+            return "redirect:loginForm.do";
+        }
     }
 }

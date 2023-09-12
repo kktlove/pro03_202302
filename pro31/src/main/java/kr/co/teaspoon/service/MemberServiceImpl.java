@@ -68,7 +68,7 @@ public class MemberServiceImpl implements MemberService {
 
     //Ajax로 로그인 처리 -> 컨트롤러
     @Override
-    public Member login(String id) throws Exception {
-        return memberDAO.login(id);
+    public Member loginAjax(Member member) throws Exception {
+        return memberDAO.loginAjax(member);
     }
 }
