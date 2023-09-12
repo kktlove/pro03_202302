@@ -32,7 +32,7 @@
             </li>
         </ul>
     </figure>
-    <div class="content" id="content">
+    <div class="content" id="contents">
         <div class="row column text-center">
             <h2 class="h1">로그인</h2>
             <hr>
@@ -43,7 +43,7 @@
                         document.loginForm.userid.focus();
                     </script>
                 </c:if>
-                <form action="${path1 }/member/signin.do" method="post" name="loginForm">
+                <form action="${path1 }/member/loginpro.do" method="post" name="loginForm">
                     <div class="table_form_wrap">
                         <table class="table_form">
                             <tbody>

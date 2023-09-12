@@ -78,9 +78,6 @@
                             MemberList
                         </a>
                     </c:if>
-                    <a href="${path1}/member/list.do" class="button is-light">
-                        MemberList
-                    </a>
                     </div>
                 </div>
             </div>
