@@ -24,6 +24,8 @@ create table board(seq int AUTO_INCREMENT primary key,
 	visited INT DEFAULT 0
 );
 
+select * from board order by regdate desc LIMIT 3, 5;
+
 insert into board values(default, '샘플 글 제목1입니다.', '여기는 샘플 글1에 대한 내용입니다.', 'admin', default, DEFAULT);
 insert into board values(default, '샘플 글 제목2입니다.', '여기는 샘플 글2에 대한 내용입니다.', 'admin', default, DEFAULT);
 insert into board values(default, '샘플 글 제목3입니다.', '여기는 샘플 글3에 대한 내용입니다.', 'admin', default, DEFAULT);
@@ -68,3 +70,29 @@ COMMIT;
 UPDATE member SET pw='$2a$10$TMTp1e7vW8nx7l7B49a2d.0robqb2qUFTuBPntKHRvVILg0CmBkqW' WHERE id='admin';
 UPDATE member SET pw='$2a$10$mpr36CRQpp903gPf.f76auK1CYzFkq.LD65JsGzdrBCiOluBotWYW' WHERE id='kim';
 SELECT * FROM member;
+
+create table free(bno INT AUTO_INCREMENT PRIMARY KEY,  -- 글번호
+title VARCHAR(100) not null,   -- 글제목
+content VARCHAR(1500) not null,    -- 글내용
+regdate DATETIME DEFAULT CURRENT_TIMESTAMP(),   -- 작성일
+visited INT,    -- 조회수
+id VARCHAR(20),    -- 작성자
+rec INT -- 추천수
+);
+
+DESC free;
+
+CREATE TABLE filetb(NO INT AUTO_INCREMENT PRIMARY KEY,  -- 번호
+articleno varchar(45) DEFAULT NULL,
+saveFolder varchar(45) DEFAULT NULL,
+originFile varchar(45) DEFAULT NULL,
+saveFile varchar(45) DEFAULT NULL
+);
+
+CREATE TABLE guestbook (
+  articleno int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  userid varchar(16) NOT NULL,
+  subject varchar(100) NOT NULL,
+  content varchar(2000) NOT NULL,
+  regtime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

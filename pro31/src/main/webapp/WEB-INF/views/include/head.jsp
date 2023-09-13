@@ -15,4 +15,5 @@
 <style>
 /* 공통 사용자 정의 스타일 */
 #ft { border-top:3px solid #369; }
+.control { margin-top:10px; margin-bottom:10px; }
 </style>

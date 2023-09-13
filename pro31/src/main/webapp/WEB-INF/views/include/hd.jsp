@@ -43,6 +43,9 @@
                         <a href="${path1 }/sample2/list.do" class="navbar-item">
                             Sample
                         </a>
+                        <a href="${path1 }/free/list.do" class="navbar-item">
+                            Free
+                        </a>
                         <a class="navbar-item">
                             Contact
                         </a>

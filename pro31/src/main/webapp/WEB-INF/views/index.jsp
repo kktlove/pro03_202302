@@ -31,7 +31,12 @@
         </ul>
     </figure>
     <div class="contents">
-        ${today } <h2>${myName }</h2>
+        ${today } <h2>${myName }</h2><hr>
+        <div class="columns loginModule">
+            <div class="column"></div>
+            <div class="column"></div>
+            <jsp:include page="./include/loginModule.jsp" />
+        </div>
     </div>
     <jsp:include page="./include/ft.jsp" />
 </div>
