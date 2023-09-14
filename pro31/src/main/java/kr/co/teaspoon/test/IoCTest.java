@@ -5,7 +5,6 @@ import kr.co.teaspoon.dto.Sample;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class IoCTest {
-    /*
     public static void main(String[] args) {
         GenericXmlApplicationContext factory;
         factory = new GenericXmlApplicationContext("GenericXmlApplicationContext.xml");
@@ -13,5 +12,5 @@ public class IoCTest {
         System.out.println(person.getSample().getNo());
         System.out.println(person.getSample().getName());
         System.out.println(person.getTel());
-    }  */
+    }
 }
