@@ -53,6 +53,11 @@
     <context:component-scan base-package="kr.co.teaspoon.controller" />
     <annotation-driven />
 
+    <beans:bean id="fileDownLoadView" class="kr.co.teaspoon.controller.FileDownLoadView"/>
+    <beans:bean id="fileViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <beans:property name="order" value="0" />
+    </beans:bean>
+
     <!-- 인터셉터 : 글쓰기와 같은 회원권한을 가진 경우는 반드시 로그인 페이지를 거쳐서 시도할 것  -->
     <!-- <beans:bean id="sampleIntercepter" class="kr.co.teaspoon.util.SampleInterceptor" />
     <beans:bean id="adminIntercepter" class="kr.co.teaspoon.util.AdminInterceptor" />

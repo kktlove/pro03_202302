@@ -301,6 +301,12 @@
           <scope>compile</scope>
       </dependency>
 
+      <dependency>
+        <groupId>javax.annotation</groupId>
+        <artifactId>javax.annotation-api</artifactId>
+        <version>1.3.2</version>
+      </dependency>
+
   </dependencies>
   <build>
     <finalName>pro03</finalName>

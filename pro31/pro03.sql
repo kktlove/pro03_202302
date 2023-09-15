@@ -82,10 +82,10 @@ rec INT -- 추천수
 
 DESC free;
 
-CREATE TABLE filetb(NO INT AUTO_INCREMENT PRIMARY KEY,  -- 번호
-articleno varchar(45) DEFAULT NULL,
-saveFolder varchar(45) DEFAULT NULL,
-originFile varchar(45) DEFAULT NULL,
+CREATE TABLE fileinfo(NO INT AUTO_INCREMENT PRIMARY KEY,  -- 번호
+articleno varchar(45) DEFAULT NULL,	-- 글번호
+saveFolder varchar(45) DEFAULT NULL,	-- 저장 디렉토리
+originFile varchar(45) DEFAULT NULL,	-- 
 saveFile varchar(45) DEFAULT NULL
 );
 
@@ -96,3 +96,36 @@ CREATE TABLE guestbook (
   content varchar(2000) NOT NULL,
   regtime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+DESC guestbook;
+
+CREATE TABLE fileobj (
+	no int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	postno INT NOT NULL,
+	savefolder VARCHAR(400),
+	originfile VARCHAR(400),
+	savefile VARCHAR(800),
+	filesize LONG,
+	uploaddate VARCHAR(100)
+);
+
+CREATE TABLE fileboard (
+	postno int NOT NULL AUTO_INCREMENT PRIMARY KEY,	-- 글 번호
+	title VARCHAR(100) not null,   -- 글제목
+	content VARCHAR(1500) not null,    -- 글내용
+	regdate DATETIME DEFAULT CURRENT_TIMESTAMP(),   -- 작성일
+	visited INT DEFAULT 0   -- 조회수
+);
+
+DESC fileobj;
+
+DESC fileboard;
+
+SELECT * FROM fileobj;
+SELECT * FROM fileboard;
+
+UPDATE fileboard SET visited=0 WHERE postno=1;
+
+ALTER TABLE fileboard MODIFY COLUMN visited INT DEFAULT 0;
+
+  

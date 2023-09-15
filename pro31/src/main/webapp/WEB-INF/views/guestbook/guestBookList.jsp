@@ -78,11 +78,11 @@
 						  </tbody>
 					  </table>
 				  </c:forEach>
-				  <table>
+<%--				  <table>
 					  <tr>
 						  <td>${navigation.navigator}</td>
 					  </tr>
-				  </table>
+				  </table>--%>
 			  </c:if>
 			  <%-- <c:if test='${sid eq "admin"}'>  --%>
 					<div class="button-group">

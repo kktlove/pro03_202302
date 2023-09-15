@@ -10,6 +10,7 @@
 <!-- 기타 설정 -->
 <!-- 폰트 -->
 <script src="${path0}/resources/js/jquery-3.7.1.js"></script>
+<link rel="stylesheet" href="https://bulma.io/vendor/fontawesome-free-5.15.2-web/css/all.min.css">
 <link rel="stylesheet" href="${path0}/resources/css/normalize.css" />
 <link rel="stylesheet" href="${path0}/resources/css/bulma.css">
 <style>

@@ -46,6 +46,14 @@
                         <a href="${path1 }/free/list.do" class="navbar-item">
                             Free
                         </a>
+                        <a href="${path1 }/file/filelist1.do" class="navbar-item">
+                            Fileboard
+                        </a>
+                        <c:if test="${sid.equals('admin')}">
+                        <a href="${path1 }/file/fileupload1.do" class="navbar-item">
+                            FileUpload
+                        </a>
+                        </c:if>
                         <a class="navbar-item">
                             Contact
                         </a>
