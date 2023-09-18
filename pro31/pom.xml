@@ -309,7 +309,7 @@
 
   </dependencies>
   <build>
-    <finalName>pro03</finalName>
+    <finalName>pro3</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-eclipse-plugin</artifactId>
